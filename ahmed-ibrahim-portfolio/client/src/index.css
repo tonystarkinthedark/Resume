@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme colors */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --border: hsl(214.3, 31.8%, 91.4%);
+  --input: hsl(214.3, 31.8%, 91.4%);
+  --primary: hsl(197, 100%, 50%);
+  --primary-foreground: hsl(210, 100%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 84%, 4.9%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 4.9%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(197, 100%, 50%);
+  --radius: 0.5rem;
+
+  /* Light Mode Colors */
+  --bg-primary: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --accent-blue: #2563EB;
+  --accent-green: #10B981;
+  --accent-purple: #9333EA;
+  --card-bg: #FFFFFF;
+  --card-border: #E5E7EB;
+  --hover-blue: #1E40AF;
+  --hover-green: #059669;
+  --hover-purple: #7E22CE;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(197, 100%, 50%);
+  --primary-foreground: hsl(210, 100%, 98%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+
+  /* Dark Mode Colors */
+  --bg-primary: #111827;
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --accent-blue: #3B82F6;
+  --accent-green: #22C55E;
+  --accent-purple: #C084FC;
+  --card-bg: #1F2937;
+  --card-border: #374151;
+  --hover-blue: #60A5FA;
+  --hover-green: #34D399;
+  --hover-purple: #D8B4FE;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased transition-colors duration-300;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  body.dark {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .dark .glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+
+  .nav-link {
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    color: var(--accent-blue);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--hover-blue), var(--hover-green));
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary {
+    background: var(--accent-purple);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--hover-purple);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .metric-card {
+    @apply glass-card p-6 rounded-xl text-center transition-all duration-200;
+  }
+
+  .experience-card {
+    @apply glass-card p-8 rounded-xl hover:shadow-lg transition-all duration-200;
+  }
+
+  .skill-bar {
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--card-border);
+    border-radius: 9999px;
+  }
+
+  .skill-progress {
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+  }
+
+  .achievement-card {
+    @apply glass-card p-6 rounded-xl text-center hover:transform hover:-translate-y-2 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .bg-navy-900 {
+    background-color: var(--navy-900);
+  }
+  
+  .bg-navy-800 {
+    background-color: var(--navy-800);
+  }
+  
+  .bg-navy-700 {
+    background-color: var(--navy-700);
+  }
+  
+  .text-cyan-400 {
+    color: var(--cyan-400);
+  }
+  
+  .text-green-400 {
+    color: var(--green-400);
+  }
+  
+  .text-slate-100 {
+    color: var(--slate-100);
+  }
+  
+  .text-slate-300 {
+    color: var(--slate-300);
+  }
+  
+  .text-slate-400 {
+    color: var(--slate-400);
+  }
+  
+  .border-cyan-400 {
+    border-color: var(--cyan-400);
+  }
+  
+  .border-slate-600 {
+    border-color: var(--slate-600);
+  }
+  
+  .focus\:border-cyan-400:focus {
+    border-color: var(--cyan-400);
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes counter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Parallax and scroll-triggered animations */
+@keyframes parallax-float {
+  0%, 100% { transform: translateY(0px) translateX(-50%); }
+  50% { transform: translateY(-20px) translateX(-50%); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-reveal {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes text-reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  z-index: -1;
+  transition: transform 0.1s ease-out;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.animate {
+  opacity: 1;
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.8s ease-out;
+}
+
+.slide-in-up {
+  animation: slide-in-up 0.8s ease-out;
+}
+
+.scale-reveal {
+  animation: scale-reveal 0.8s ease-out;
+}
+
+.text-reveal {
+  animation: text-reveal 0.6s ease-out;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* Parallax elements */
+.parallax-element {
+  position: absolute;
+  animation: parallax-float 6s ease-in-out infinite;
+}
+
+.parallax-slow {
+  transition: transform 0.2s ease-out;
+}
+
+.parallax-medium {
+  transition: transform 0.15s ease-out;
+}
+
+.parallax-fast {
+  transition: transform 0.1s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.animate-counter {
+  animation: counter 2s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out 0.3s both;
+}
